@@ -10,13 +10,13 @@ from pathlib import Path
 import energyscope as es
 
 if __name__ == '__main__':
-    analysis_only = False
-    compute_TDs = True
+    analysis_only = True
+    compute_TDs = False
 
     # loading the config file into a python dictionnary
     config = es.load_config(config_fn='config_ref.yaml')
     config['Working_directory'] = os.getcwd() # keeping current working directory into config
-    
+    print(config)
    # Reading the data of the csv
     es.import_data(config)
 
@@ -49,7 +49,4 @@ if __name__ == '__main__':
     # layer_ELECTRICITY for the 12 tds
     elec_layer_plot = es.plot_layer_elec_td(outputs['layer_ELECTRICITY'])
     # layer_HEAT_LOW_T_DECEN for the 12 tds
-    fig,ax = es.hourly_plot(plotdata=outputs['layer_HEAT_LOW_T_DECEN'], nbr_tds=12)
-    
-    
-    
+    fig, ax = es.hourly_plot(plotdata=outputs['layer_HEAT_LOW_T_DECEN'], nbr_tds=12)

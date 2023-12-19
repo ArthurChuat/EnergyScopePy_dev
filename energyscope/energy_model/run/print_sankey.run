@@ -518,7 +518,7 @@ if sum{t in PERIODS, h in HOUR_OF_PERIOD[t], td in TYPICAL_DAY_OF_PERIOD[t]}(F_t
     }
     printf "%s,%s,%.2f,%s,%s,%s\n", "Elec" , "Heat HT", sum{t in PERIODS, h in HOUR_OF_PERIOD[t], td in TYPICAL_DAY_OF_PERIOD[t]}
                                                              (F_t ["IND_DIRECT_ELEC", h, td]	  - max(storage_eff_in["TS_HIGH_TEMP" , "HEAT_HIGH_T"] * Storage_in["TS_HIGH_TEMP" , "HEAT_HIGH_T", h, td] - Storage_out["TS_HIGH_TEMP" , "HEAT_HIGH_T", h, td],0 ))/1000,
-           "Electricity", "#00BFFF", "TWh" >> (PathName & "/sankey/input2sankey.csv");
+           "a", "#00BFFF", "TWh" >> (PathName & "/sankey/input2sankey.csv");
 }
 # Electrolysis
 if sum{t in PERIODS, h in HOUR_OF_PERIOD[t], td in TYPICAL_DAY_OF_PERIOD[t]}(F_t ["H2_ELECTROLYSIS", h, td]  ) > 10 then {

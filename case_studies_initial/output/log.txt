@@ -1,0 +1,4 @@
+Error at _cmdno 10 executing "solve" command
+(file test.run, line 29, offset 1324):
+error processing constraint add_cst_1:
+	invalid subscript F['V2G']
