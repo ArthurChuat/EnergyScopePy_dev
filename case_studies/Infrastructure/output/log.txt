@@ -1,0 +1,44 @@
+
+Presolve eliminates 823404 constraints and 579298 variables.
+"option presolve 10;" used, but "option presolve 4;" would suffice.
+Adjusted problem:
+258768 variables, all linear
+476970 constraints, all linear; 1455078 nonzeros
+	350830 equality constraints
+	126140 inequality constraints
+1 linear objective; 1 nonzero.
+
+presolve, constraint end_uses_t['ELECTRICITY_LV',24,12]:
+	all variables eliminated, but lower bound = 7.62 > 0
+presolve, constraint end_uses_t['ELECTRICITY_LV',24,11]:
+	all variables eliminated, but lower bound = 3.83285 > 0
+presolve, constraint end_uses_t['ELECTRICITY_LV',24,10]:
+	all variables eliminated, but lower bound = 5.70336 > 0
+presolve, constraint end_uses_t['ELECTRICITY_LV',24,9]:
+	all variables eliminated, but lower bound = 5.02965 > 0
+presolve, constraint end_uses_t['ELECTRICITY_LV',24,8]:
+	all variables eliminated, but lower bound = 4.56211 > 0
+283 presolve messages suppressed.
+presolve results:
+	variables omitted:	579298
+	constraints omitted:	823404
+	ranges relaxed:		10419
+	bounds improved:	567344
+	constraint_drop_tol breakpoints: 0, 0, Infinity
+	nba cycles:		3
+	bound row scans:	279286
+	row-scan updates:	25629
+solve_result = infeasible
+
+solve_result_num = 299
+
+_solve_elapsed_time = 0
+
+F [*] :=
+              EFFICIENCY  0.985222
+;
+
+end_uses_t :=
+;
+
+INFEASIBLE
