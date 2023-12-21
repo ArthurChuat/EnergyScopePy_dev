@@ -347,8 +347,8 @@ subject to constantNuc {h in HOURS, td in TYPICAL_DAYS}:
 subject to operating_strategy_mob_passenger_SD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_SD"]  , h in HOURS, td in TYPICAL_DAYS}:
 	F_t [j, h, td]   = Shares_mobility_passenger [j] * (end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]);
 
-#subject to operating_strategy_mob_passenger_LD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_LD"]  , h in HOURS, td in TYPICAL_DAYS}:
-#	F_t [j, h, td]   = Shares_mobility_passenger [j] * (end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]);	#WIP Those equations can probably be simplified into a single one
+subject to operating_strategy_mob_passenger_LD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_LD"]  , h in HOURS, td in TYPICAL_DAYS}:
+	F_t [j, h, td]   = Shares_mobility_passenger [j] * (end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]);	#WIP Those equations can probably be simplified into a single one
 
 # [Eq. 2.25] Operating strategy in mobility freight (to make model more realistic)
 # Each freight mobility technology (j) has to supply a constant share  (Shares_mobility_freight[j]) of the passenger mobility demand

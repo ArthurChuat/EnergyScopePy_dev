@@ -132,13 +132,13 @@ HEAT_HIGH_T	0.0	0.0	56713.3	0.0
 HEAT_LOW_T_SH	45360.0	32023.1	14753.0	0.0
 HEAT_LOW_T_HW	11595.0	7178.5	3822.4	0.0
 MOBILITY_PASSENGER_SD	0.0	0.0	0.0	63708.2 #159270.5*0.4
-#MOBILITY_PASSENGER_LD	0.0	0.0	0.0	95#95562.3 #159270.5*0.6
+MOBILITY_PASSENGER_LD	0.0	0.0	0.0	95562.3 #159270.5*0.6
 MOBILITY_FREIGHT	0.0	0.0	0.0	92766.4
 NON_ENERGY	0.0	0.0	55012.1	0.0
 ;
   
- #param  share_mobility_public_min  :=  0.199; 
- #param  share_mobility_public_max  :=  0.5; 
+ param  share_mobility_public_min  :=  0.199; 
+ param  share_mobility_public_max  :=  0.5; 
   
  param  share_freight_train_min  :=  0.109; 
  param  share_freight_train_max  :=  0.25; 
