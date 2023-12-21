@@ -1,0 +1,31 @@
+
+Presolve eliminates 705479 constraints and 451934 variables.
+"option presolve 10;" used, but "option presolve 6;" would suffice.
+Adjusted problem:
+270186 variables, all linear
+492470 constraints, all linear; 1547946 nonzeros
+	349442 equality constraints
+	143028 inequality constraints
+1 linear objective; 1 nonzero.
+
+presolve, constraint end_uses_t['MOB_PUBLIC_SD',24,12]:
+	all variables eliminated, but lower bound = 0.598857 > 0
+presolve, constraint end_uses_t['MOB_PUBLIC_SD',24,11]:
+	all variables eliminated, but lower bound = 0.598857 > 0
+presolve, constraint end_uses_t['MOB_PUBLIC_SD',24,10]:
+	all variables eliminated, but lower bound = 0.598857 > 0
+presolve, constraint end_uses_t['MOB_PUBLIC_SD',24,9]:
+	all variables eliminated, but lower bound = 0.598857 > 0
+presolve, constraint end_uses_t['MOB_PUBLIC_SD',24,8]:
+	all variables eliminated, but lower bound = 0.598857 > 0
+283 presolve messages suppressed.
+presolve results:
+	variables omitted:	451934
+	constraints omitted:	705479
+	ranges relaxed:		12310
+	bounds improved:	452794
+	constraint_drop_tol breakpoints: 0, 0, 0.7230262264604947
+	nba cycles:		5
+	bound row scans:	288226
+	row-scan updates:	30565
+INFEASIBLE

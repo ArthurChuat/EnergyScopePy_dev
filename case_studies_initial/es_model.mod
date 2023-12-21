@@ -431,9 +431,6 @@ subject to solar_area_limited :
 ##########################
 ### OBJECTIVE FUNCTION ###
 ##########################
-subject to add_cst_1 :
-	F["V2G"] > 0.5;
-
 
 # Can choose between TotalGWP and TotalCost
 minimize obj: TotalCost;

@@ -1,0 +1,6 @@
+source,target,realValue,layerID,layerColor,layerUnit
+Ammonia,Non-energy demand,10.56,Ammonia,#000ECD,TWh
+Methanol,Non-energy demand,1.60,Methanol,#CC0066,TWh
+HVC,Non-energy demand,42.85,HVC,#00FFFF,TWh
+Gas Prod,Gas,0.00,GAS,#FFD700,TWh
+Heat HT,Ind Heat Demand,56.71,Heat HT,#DC143C,TWh
