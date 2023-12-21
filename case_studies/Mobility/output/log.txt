@@ -1,36 +1,34 @@
 
-Presolve eliminates 709223 constraints and 451934 variables.
-"option presolve 10;" used, but "option presolve 6;" would suffice.
+Presolve eliminates 708633 constraints and 451934 variables.
+"option presolve 10;" used, but "option presolve 7;" would suffice.
 Adjusted problem:
 270186 variables, all linear
-492758 constraints, all linear; 1547946 nonzeros
-	349730 equality constraints
+493348 constraints, all linear; 1547946 nonzeros
+	350320 equality constraints
 	143028 inequality constraints
 1 linear objective; 1 nonzero.
 
-presolve, variable Share_mobility_public:
-	impossible deduced bounds: lower = 1, upper = 0.5;
-	difference = 0.5
-presolve, variable Share_mobility_public:
-	impossible deduced bounds: lower = 1, upper = 0.5;
-	difference = 0.5
-presolve, variable Share_mobility_public:
-	impossible deduced bounds: lower = 1, upper = 0.5;
-	difference = 0.5
-presolve, variable Share_mobility_public:
-	impossible deduced bounds: lower = 1, upper = 0.5;
-	difference = 0.5
-presolve, variable Share_mobility_public:
-	impossible deduced bounds: lower = 1, upper = 0.5;
-	difference = 0.5
-571 presolve messages suppressed.
+Setting $presolve_fixeps < 5.8e-08 or >= 1.22e-07
+could change presolve results.
+
+presolve, constraint operating_strategy_mob_passenger_SD['CAR_FUEL_CELL',21,9]:
+	all variables eliminated, but upper bound = -4.06356e-07 < 0
+presolve, constraint operating_strategy_mob_passenger_SD['CAR_BEV',21,9]:
+	all variables eliminated, but upper bound = -4.06356e-07 < 0
+presolve, constraint operating_strategy_mob_passenger_SD['CAR_PHEV',21,9]:
+	all variables eliminated, but upper bound = -4.06356e-07 < 0
+presolve, constraint operating_strategy_mob_passenger_SD['CAR_HEV',21,9]:
+	all variables eliminated, but upper bound = -4.06356e-07 < 0
+presolve, constraint operating_strategy_mob_passenger_SD['CAR_METHANOL',21,9]:
+	all variables eliminated, but upper bound = -4.06356e-07 < 0
+2070 presolve messages suppressed.
 presolve results:
 	variables omitted:	451933
-	constraints omitted:	709223
+	constraints omitted:	708633
 	ranges relaxed:		12310
-	bounds improved:	453369
+	bounds improved:	454238
 	constraint_drop_tol breakpoints: 0, 0, 0.7230262264604947
-	nba cycles:		5
-	bound row scans:	292258
-	row-scan updates:	30565
+	nba cycles:		6
+	bound row scans:	334676
+	row-scan updates:	43430
 INFEASIBLE
