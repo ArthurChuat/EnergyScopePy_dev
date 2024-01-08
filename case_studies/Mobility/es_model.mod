@@ -134,7 +134,8 @@ param total_time := sum {t in PERIODS, h in HOUR_OF_PERIOD [t], td in TYPICAL_DA
 #####################################
 
 ##Independent variables [Table 2.3] :
-var Share_mobility_public >= share_mobility_public_min, <= share_mobility_public_max; # %_Public: Ratio [0; 1] public mobility over total passenger mobility
+var Share_mobility_public_SD >= share_mobility_public_min, <= share_mobility_public_max; # %_Public: Ratio [0; 1] public mobility over total passenger mobility
+var Share_mobility_public_LD >= share_mobility_public_min, <= share_mobility_public_max; # %_Public: Ratio [0; 1] public mobility over total passenger mobility
 var Share_freight_train, >= share_freight_train_min, <= share_freight_train_max; # %_Fr,Rail: Ratio [0; 1] rail transport over total freight transport
 var Share_freight_road, >= share_freight_road_min, <= share_freight_road_max; # %_Fr,Truck: Ratio [0; 1] Truck transport over total freight transport
 var Share_freight_boat, >= share_freight_boat_min, <= share_freight_boat_max; # %_Fr,Boat: Ratio [0; 1] boat transport over total freight transport
@@ -144,7 +145,8 @@ var F_t {RESOURCES union TECHNOLOGIES, HOURS, TYPICAL_DAYS} >= 0; # F_t: Operati
 var Storage_in {i in STORAGE_TECH, LAYERS, HOURS, TYPICAL_DAYS} >= 0; # Sto_in [GW]: Power input to the storage in a certain period
 var Storage_out {i in STORAGE_TECH, LAYERS, HOURS, TYPICAL_DAYS} >= 0; # Sto_out [GW]: Power output from the storage in a certain period
 var Power_nuclear  >=0; # [GW] P_Nuc: Constant load of nuclear
-var Shares_mobility_passenger {TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_SD"] union TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_LD"]} >=0; # %_PassMob [-]: Constant share of passenger mobility
+var Shares_mobility_passenger_SD {TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_SD"] } >=0; # %_PassMob [-]: Constant share of passenger mobility
+var Shares_mobility_passenger_LD {TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_LD"]} >=0; # %_PassMob [-]: Constant share of passenger mobility
 var Shares_mobility_freight {TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_FREIGHT"]} >=0; # %_FreightMob [-]: Constant share of passenger mobility
 var Shares_lowT_dec {TECHNOLOGIES_OF_END_USES_TYPE["HEAT_LOW_T_DECEN"] diff {"DEC_SOLAR"}}>=0 ; # %_HeatDec [-]: Constant share of heat Low T decentralised + its specific thermal solar
 var F_solar         {TECHNOLOGIES_OF_END_USES_TYPE["HEAT_LOW_T_DECEN"] diff {"DEC_SOLAR"}} >=0; # F_sol [GW]: Solar thermal installed capacity per heat decentralised technologies
@@ -180,13 +182,13 @@ subject to end_uses_t {l in LAYERS, h in HOURS, td in TYPICAL_DAYS}:
 			(end_uses_input["HEAT_LOW_T_HW"] / total_time + end_uses_input["HEAT_LOW_T_SH"] * heating_time_series [h, td] / t_op [h, td] ) * (1 - Share_heat_dhn)
 		
 		else (if l == "MOB_PUBLIC_SD" then
-			(end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * Share_mobility_public
+			(end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * Share_mobility_public_SD
 		else (if l == "MOB_PUBLIC_LD" then
-			(end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * Share_mobility_public
+			(end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * Share_mobility_public_LD
 		else (if l == "MOB_PRIVATE_SD" then
-			(end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * (1 - Share_mobility_public)
+			(end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * (1 - Share_mobility_public_SD)
 		else (if l == "MOB_PRIVATE_LD" then
-			(end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * (1 - Share_mobility_public)
+			(end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]  ) * (1 - Share_mobility_public_LD)
 
 		else (if l == "MOB_FREIGHT_RAIL" then
 			(end_uses_input["MOBILITY_FREIGHT"]   * mob_freight_time_series [h, td] / t_op [h, td] ) *  Share_freight_train
@@ -344,11 +346,11 @@ subject to constantNuc {h in HOURS, td in TYPICAL_DAYS}:
 
 # [Eq. 2.24] Operating strategy in mobility passenger (to make model more realistic)
 # Each passenger mobility technology (j) has to supply a constant share  (Shares_mobility_passenger[j]) of the passenger mobility demand
-subject to operating_strategy_mob_passenger_SD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_SD"]  , h in HOURS, td in TYPICAL_DAYS}:
-	F_t [j, h, td]   = Shares_mobility_passenger [j] * (end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]);
+#subject to operating_strategy_mob_passenger_SD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_SD"]  , h in HOURS, td in TYPICAL_DAYS}:
+#	F_t [j, h, td]   = Shares_mobility_passenger_SD [j] * (end_uses_input["MOBILITY_PASSENGER_SD"] * mob_pass_time_series [h, td] / t_op [h, td]);
 
-subject to operating_strategy_mob_passenger_LD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_LD"]  , h in HOURS, td in TYPICAL_DAYS}:
-	F_t [j, h, td]   = Shares_mobility_passenger [j] * (end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]);	#WIP Those equations can probably be simplified into a single one
+#subject to operating_strategy_mob_passenger_LD{j in TECHNOLOGIES_OF_END_USES_CATEGORY["MOBILITY_PASSENGER_LD"]  , h in HOURS, td in TYPICAL_DAYS}:
+#	F_t [j, h, td]   = Shares_mobility_passenger_LD [j] * (end_uses_input["MOBILITY_PASSENGER_LD"] * mob_pass_time_series [h, td] / t_op [h, td]);	#WIP Those equations can probably be simplified into a single one
 
 # [Eq. 2.25] Operating strategy in mobility freight (to make model more realistic)
 # Each freight mobility technology (j) has to supply a constant share  (Shares_mobility_freight[j]) of the passenger mobility demand

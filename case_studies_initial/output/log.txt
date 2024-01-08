@@ -29,7 +29,7 @@ solve_result = solved
 
 solve_result_num = 0
 
-_solve_elapsed_time = 29.5464
+_solve_elapsed_time = 40.4057
 
 F [*] :=
          AMMONIA_STORAGE     0.685287

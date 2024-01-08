@@ -1,34 +1,44 @@
 
-Presolve eliminates 708633 constraints and 451934 variables.
-"option presolve 10;" used, but "option presolve 7;" would suffice.
+Presolve eliminates 728897 constraints and 446747 variables.
+"option presolve 10;" used, but "option presolve 6;" would suffice.
 Adjusted problem:
-270186 variables, all linear
-493348 constraints, all linear; 1547946 nonzeros
-	350320 equality constraints
-	143028 inequality constraints
+278864 variables, all linear
+504486 constraints, all linear; 1599044 nonzeros
+	351484 equality constraints
+	153002 inequality constraints
 1 linear objective; 1 nonzero.
 
-Setting $presolve_fixeps < 5.8e-08 or >= 1.22e-07
-could change presolve results.
-
-presolve, constraint operating_strategy_mob_passenger_SD['CAR_FUEL_CELL',21,9]:
-	all variables eliminated, but upper bound = -4.06356e-07 < 0
-presolve, constraint operating_strategy_mob_passenger_SD['CAR_BEV',21,9]:
-	all variables eliminated, but upper bound = -4.06356e-07 < 0
-presolve, constraint operating_strategy_mob_passenger_SD['CAR_PHEV',21,9]:
-	all variables eliminated, but upper bound = -4.06356e-07 < 0
-presolve, constraint operating_strategy_mob_passenger_SD['CAR_HEV',21,9]:
-	all variables eliminated, but upper bound = -4.06356e-07 < 0
-presolve, constraint operating_strategy_mob_passenger_SD['CAR_METHANOL',21,9]:
-	all variables eliminated, but upper bound = -4.06356e-07 < 0
-2070 presolve messages suppressed.
 presolve results:
-	variables omitted:	451933
-	constraints omitted:	708633
-	ranges relaxed:		12310
-	bounds improved:	454238
-	constraint_drop_tol breakpoints: 0, 0, 0.7230262264604947
-	nba cycles:		6
-	bound row scans:	334676
-	row-scan updates:	43430
-INFEASIBLE
+	variables omitted:	446747
+	constraints omitted:	728897
+	ranges relaxed:		46972
+	bounds improved:	447908
+	nba cycles:		5
+	bound row scans:	331679
+	row-scan updates:	40357
+Gurobi 10.0.2:   pre:dual = -1
+  alg:method = 2
+  bar:crossover = 0
+  pre:passes = 3
+  bar:convtol = 1e-06
+  pre:solve = -1
+Gurobi 10.0.2: optimal solution; objective 45028.11561
+0 simplex iterations
+77 barrier iterations
+share_mobility_public_min = 0.199
+
+share_mobility_public_max = 0.5
+
+TotalCost 45028.11561463444
+GWP_op 73133.97199205034
+--------------SAVING COSTS -----------
+--------------SAVING RESOURCES -----------
+--------------SAVING GWP -----------
+--------------SAVING Losses -----------
+--------------SAVING ASSETS -----------
+--------------SAVING STORAGE -----------
+--------------SAVING LAYERS -----------
+--------- SAVING SANKEY --------
+Error at _cmdno 7684150 executing "if" command
+(file /Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/energyscope/energy_model/run/print_sankey.run, line 128, offset 9634):
+	invalid subscript F_t['CAR_METHANOL',1,3]

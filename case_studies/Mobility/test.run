@@ -24,7 +24,7 @@ option presolve_eps "1e-7";
 option presolve_fixeps "1e-7";
 option show_boundtol "0";
 option _log_input_only "False";
-option solver "cplex";
+option solver "gurobi";
 option gurobi_options "predual=-1 method=2 crossover=0 prepasses=3 barconvtol=1e-6 presolve=-1";
 
 #option omit_zero_rows 1;                            
@@ -32,16 +32,18 @@ option gurobi_options "predual=-1 method=2 crossover=0 prepasses=3 barconvtol=1e
 #display end_uses_input["MOBILITY_PASSENGER_SD"];
 #expand layers_in_out;
 
+
 # Solve
 solve;
 option times 0; # show time
 option gentimes 0; # show time
 
+display F;
+
+
 #display solve_result;
 #display solve_result_num;
 #display _solve_elapsed_time;
-#display F;
-#expand operating_strategy_mob_passenger_SD;
 
 # Saving sets and parameters to output file
 param PathName symbolic := "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/Mobility/output";
