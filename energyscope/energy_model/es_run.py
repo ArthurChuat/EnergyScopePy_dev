@@ -18,7 +18,6 @@ from energyscope import print_run
 
 def run_es(config):
     """
-
     :param config: configuration
     :return:
     """

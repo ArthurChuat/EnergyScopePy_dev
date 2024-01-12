@@ -10,7 +10,7 @@ from pathlib import Path
 import energyscope as es
 
 if __name__ == '__main__':
-    analysis_only = True
+    analysis_only = False
     compute_TDs = False
 
     # loading the config file into a python dictionnary

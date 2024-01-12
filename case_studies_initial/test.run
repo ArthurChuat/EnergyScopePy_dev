@@ -25,6 +25,8 @@ option _log_input_only "False";
 option solver "gurobi";
 option gurobi_options "predual=-1 method=2 crossover=0 prepasses=3 barconvtol=1e-6 presolve=-1";
 
+
+display TYPICAL_DAY_OF_PERIOD;
 # Solve
 solve;
 
