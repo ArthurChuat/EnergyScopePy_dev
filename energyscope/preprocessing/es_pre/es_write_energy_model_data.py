@@ -378,7 +378,8 @@ def print_data(config):
                       'Freight mobility (%_freight)': 'param mob_freight_time_series :'}
         # for resources timeseries that have only 1 tech linked to it
         res_params = {'PV': 'PV', 'Wind_onshore': 'WIND_ONSHORE', 'Wind_offshore': 'WIND_OFFSHORE',
-                      'Hydro_river': 'HYDRO_RIVER'}
+                      'Hydro_river': 'HYDRO_RIVER',
+                      'SFH_RENO': 'SFH_RENO', 'MFH_RENO': 'MFH_RENO' }
         # for resources timeseries that have several techs linked to it
         res_mult_params = {'Solar': ['DHN_SOLAR', 'DEC_SOLAR']}
 

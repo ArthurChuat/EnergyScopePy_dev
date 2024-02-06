@@ -1,3 +1,11 @@
+Error at _cmdno 10 executing "solve" command
+(file ESTD_main.run, line 29, offset 1324):
+error processing param c_p_t:
+	576 invalid subscripts discarded:
+	c_p_t['SFH_RENO',1,1]
+	c_p_t['SFH_RENO',1,2]
+	c_p_t['SFH_RENO',1,3]
+	and 573 more.
 
 Presolve eliminates 651003 constraints and 417359 variables.
 "option presolve 10;" used, but "option presolve 6;" would suffice.
@@ -29,7 +37,7 @@ solve_result = solved
 
 solve_result_num = 0
 
-_solve_elapsed_time = 39.2404
+_solve_elapsed_time = 31.4339
 
 TotalCost 43941.30032201849
 GWP_op 70721.68546948691

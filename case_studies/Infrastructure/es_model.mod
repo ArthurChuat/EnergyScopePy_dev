@@ -474,6 +474,7 @@ subject to solar_area_limited :
 # Grid constraints
 subject to grid_power1 {t in PERIODS, h in HOUR_OF_PERIOD[t], td in TYPICAL_DAY_OF_PERIOD[t], g in GRIDS}:
 	F [g] >= F_t [g,h,td];
+	
 subject to grid_power2  {t in PERIODS, l in (ELECTRICITY_LAYERS union H2_LAYERS union NG_LAYERS), g in GRIDS_OF_LAYERS[l], h in HOUR_OF_PERIOD[t], td in TYPICAL_DAY_OF_PERIOD[t]}:
 	F_t [g,h,td] >= sum {j in TECHNOLOGIES diff STORAGE_TECH: layers_in_out[j,l]>0} (F_t [j,h,td]*layers_in_out[j,l]) + F_t [l,h,td];
 

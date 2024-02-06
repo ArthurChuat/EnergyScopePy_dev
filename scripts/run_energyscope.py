@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     # loading the config file into a python dictionnary
     config = es.load_config(config_fn='config_ref.yaml')
-    config['Working_directory'] = os.getcwd() # keeping current working directory into config
+    config['Working_directory'] = os.getcwd()   # keeping current working directory into config
     print(config)
    # Reading the data of the csv
     es.import_data(config)
