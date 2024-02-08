@@ -8,15 +8,15 @@
 ################################################################################
 
 # Load model
-model "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies_initial/es_model.mod";
+model "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/ref_run/es_model.mod";
 
 # Load data
-data "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies_initial/ESTD_data.dat";
-data "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies_initial/ESTD_12TD.dat";
+data "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/ref_run/ESTD_data.dat";
+data "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/ref_run/ESTD_12TD.dat";
 
 # Run options
 option show_stats "3";
-option log_file "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies_initial/output/log.txt";
+option log_file "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/ref_run/output/log.txt";
 option presolve "10";
 option presolve_eps "1e-7";
 option presolve_fixeps "1e-7";
@@ -25,8 +25,6 @@ option _log_input_only "False";
 option solver "gurobi";
 option gurobi_options "predual=-1 method=2 crossover=0 prepasses=3 barconvtol=1e-6 presolve=-1";
 
-
-#display TYPICAL_DAY_OF_PERIOD;
 # Solve
 solve;
 
@@ -36,11 +34,11 @@ option gentimes 0; # show time
 display solve_result;
 display solve_result_num;
 display _solve_elapsed_time;
-display F;
-
+display F['SFH_RENO']; 
+display F['MFH_RENO']; 
 
 # Saving sets and parameters to output file
-param PathName symbolic := "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies_initial/output";
+param PathName symbolic := "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/ref_run/output";
 
 if solve_result = "limit" then { # To avoid post treatment error
     print "TIME OUT";

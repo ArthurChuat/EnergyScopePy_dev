@@ -1,0 +1,115 @@
+
+Presolve eliminates 651593 constraints and 417943 variables.
+"option presolve 10;" used, but "option presolve 6;" would suffice.
+Adjusted problem:
+274809 variables, all linear
+501990 constraints, all linear; 1583384 nonzeros
+	354338 equality constraints
+	147652 inequality constraints
+1 linear objective; 1 nonzero.
+
+presolve results:
+	variables omitted:	417943
+	constraints omitted:	651593
+	ranges relaxed:		28494
+	bounds improved:	418581
+	constraint_drop_tol breakpoints: 0, 0, 0.7230262264604947
+	nba cycles:		5
+	bound row scans:	314311
+	row-scan updates:	36408
+Gurobi 10.0.2:   pre:dual = -1
+  alg:method = 2
+  bar:crossover = 0
+  pre:passes = 3
+  bar:convtol = 1e-06
+  pre:solve = -1
+Gurobi 10.0.2: optimal solution; objective 43941.30032
+0 simplex iterations
+84 barrier iterations
+solve_result = solved
+
+solve_result_num = 0
+
+_solve_elapsed_time = 29.3428
+
+F['SFH_RENO'] = 0
+
+F['MFH_RENO'] = 0
+
+F [*] :=
+         AMMONIA_STORAGE     0.685287
+                 BATT_LI     5.94783e-05
+                BEV_BATT   175.56
+          BIOMASS_TO_HVC     1.41911e-06
+     BIOMASS_TO_METHANOL     1.70359
+          BIOMETHANATION     2.12973e-06
+          BIO_HYDROLYSIS     2.20987
+     BOAT_FREIGHT_DIESEL     1.32273e-05
+         BOAT_FREIGHT_NG    27.8287
+    BUS_COACH_CNG_STOICH    21.4403
+                 CAR_BEV   176.965
+                CAR_PHEV     4.76154e-05
+                    CCGT    10.6134
+             CO2_STORAGE     0.000633394
+          DEC_BOILER_GAS     5.11002e-06
+          DEC_BOILER_OIL     4.2395e-06
+         DEC_BOILER_WOOD     1.78562e-06
+         DEC_DIRECT_ELEC     2.31884e-05
+             DEC_HP_ELEC    18.4812
+               DEC_SOLAR     7.99767e-06
+            DEC_THHP_GAS     0.111231
+                     DHN     7.41795
+          DHN_BOILER_GAS     1.73544e-06
+          DHN_BOILER_OIL     1.64876e-06
+         DHN_BOILER_WOOD     1.50233e-06
+           DHN_COGEN_GAS     1.35407e-06
+             DHN_HP_ELEC     6.81344
+          DIESEL_STORAGE     0.694191
+              EFFICIENCY     0.985222
+        GASOLINE_STORAGE     0.692601
+             GAS_STORAGE 22460
+                    GRID     1.33684
+         H2_ELECTROLYSIS     1.29903e-05
+              H2_STORAGE     0.0194035
+             HYDRO_RIVER     0.115
+         IND_BOILER_COAL     3.46923
+          IND_BOILER_GAS     2.15791e-05
+          IND_BOILER_OIL     7.90588e-06
+        IND_BOILER_WASTE     1.85136
+         IND_BOILER_WOOD     4.78264e-06
+           IND_COGEN_GAS     1.79742
+         IND_DIRECT_ELEC     7.15386
+             LFO_STORAGE     0.722797
+     METHANE_TO_METHANOL     2.01256e-06
+        METHANOL_STORAGE     0.69984
+         METHANOL_TO_HVC     1.22586
+              OIL_TO_HVC     3.6662
+               PHEV_BATT     9.4475e-06
+                     PHS     6.49996
+                      PV    52.6119
+                     SMR     2.06718
+           TRAIN_FREIGHT     7.73042
+         TRAMWAY_TROLLEY     7.96333
+         TRUCK_FUEL_CELL    51.4676
+     TS_DEC_ADVCOGEN_GAS     0.000109365
+      TS_DEC_ADVCOGEN_H2     0.000108543
+       TS_DEC_BOILER_GAS     0.000110247
+       TS_DEC_BOILER_OIL     0.000109608
+      TS_DEC_BOILER_WOOD     0.000110036
+        TS_DEC_COGEN_GAS     0.000109751
+        TS_DEC_COGEN_OIL     0.000108496
+      TS_DEC_DIRECT_ELEC     0.000110285
+          TS_DEC_HP_ELEC    56.5038
+         TS_DEC_THHP_GAS     0.138156
+            TS_DHN_DAILY     0.000997534
+         TS_DHN_SEASONAL   913.898
+            TS_HIGH_TEMP     1.83228
+           WIND_OFFSHORE     6
+            WIND_ONSHORE    10
+;
+
+
+test.run, line 52 (offset 1940):
+	Abandoning compound command to accept declaration of PathName.
+
+context:  param PathName symbolic := "/Users/achuat/Documents/Projects/Governance_EnergyScope/EnergyScopePy_dev/case_studies/Renovation/output" >>> ; <<< 
